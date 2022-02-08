@@ -17,15 +17,19 @@ class GameRooms extends StatelessWidget {
                 context, MaterialPageRoute(builder: (_) => const GameRoom()));
           },
           child: Container(
+            color: Colors.blueGrey[100],
             padding: const EdgeInsets.all(15),
-            color: Colors.white70,
             height: 100,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Image.asset('assets/logo_small_transparent.png', height: 50),
+                Text(
+                  'Game room ' + gameRoom.toString(),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.w400),
+                ),
                 const Icon(Icons.gamepad),
-                Text('Game room ' + gameRoom.toString()),
-                const Icon(Icons.transit_enterexit),
               ],
             ),
           ),

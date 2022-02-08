@@ -60,7 +60,13 @@ class _GameRoomState extends State<GameRoom> {
           sizeFactor: animation,
           child: Container(
             height: 100,
-            color: Colors.yellow,
+            color: Colors.blueGrey,
+            child: Center(
+              child: Image.asset(
+                'assets/logo_full_transparent.png',
+                height: 40,
+              ),
+            ),
           ),
         ),
         duration: const Duration(milliseconds: 1000),
@@ -73,6 +79,7 @@ class _GameRoomState extends State<GameRoom> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      backgroundColor: Colors.blueGrey[100],
       body: AnimatedList(
         key: animatedListKey,
         initialItemCount: totalCandidatesList.length,
@@ -84,7 +91,6 @@ class _GameRoomState extends State<GameRoom> {
               children: [
                 Container(
                   padding: const EdgeInsets.all(15),
-                  color: Colors.white70,
                   height: 100,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,12 +109,11 @@ class _GameRoomState extends State<GameRoom> {
                 if (totalCandidatesList.length == 1) ...[
                   const Divider(height: 1),
                   Text(
-                    totalCandidatesList.first.toString(),
-                    style: const TextStyle(fontSize: 100),
+                    totalCandidatesList.first.toString() + '\nSurvivor',
+                    style: const TextStyle(fontSize: 80),
+                    textAlign: TextAlign.center,
                   ),
-                  Image.asset('assets/logo_small_transparent.png', height: 220),
-                  Image.network(
-                      'https://picsum.photos/200?category=actor?image=$playerCard'),
+                  Image.asset('assets/logo_small_transparent.png', height: 300),
                 ],
               ],
             ),

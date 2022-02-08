@@ -11,7 +11,7 @@ class GameCredits extends StatelessWidget {
       itemBuilder: (_, int index) {
         return Container(
           padding: const EdgeInsets.all(15),
-          color: Colors.white70,
+          color: Colors.blueGrey[100],
           height: 120,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
