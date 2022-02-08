@@ -64,3 +64,39 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+// 1 3 6 10 15 21  
+void main(){
+  int totalCandidates = 100;  
+  List<int> totalCandidatesList = List.generate(totalCandidates, (index) => ++index);  
+  returnWinnerOfTheCardGame(totalCandidatesList);
+}
+
+int returnWinnerOfTheCardGame(List<int> totalCandidatesList) {
+  List<int> totalRemainingCandidates = [];
+  int startIndex = 0;
+  int endIndex = 0;
+  for (int i = 0; i < totalCandidatesList.length; ++i) {
+    endIndex = endIndex + i;
+    startIndex = endIndex;
+    startIndex--;
+    if (startIndex >= totalCandidatesList.last &&
+        endIndex >= totalCandidatesList.last) {
+      break;
+    }
+    if (startIndex >= totalCandidatesList.length &&
+        endIndex >= totalCandidatesList.length) {
+      break;
+    }
+    if (!startIndex.isNegative) {
+      totalRemainingCandidates
+          .add(totalCandidatesList.sublist(startIndex, endIndex).first);
+    }
+  }
+  totalCandidatesList
+      .removeWhere((element) => totalRemainingCandidates.contains(element));
+  if (totalCandidatesList.length > 1) {
+    returnWinnerOfTheCardGame(totalCandidatesList);
+  }
+  return totalCandidatesList.first;
+}
