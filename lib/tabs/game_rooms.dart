@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levelup_sports_assignment/tabs/game_room.dart';
 
 class GameRooms extends StatelessWidget {
   const GameRooms({Key? key}) : super(key: key);
@@ -10,17 +11,23 @@ class GameRooms extends StatelessWidget {
       itemCount: totalCandidates,
       itemBuilder: (_, int index) {
         int gameRoom = ++index;
-        return Container(
-          padding: const EdgeInsets.all(15),
-          color: Colors.white70,
-          height: 100,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Icon(Icons.gamepad),
-              Text('Game room ' + gameRoom.toString()),
-              const Icon(Icons.transit_enterexit),
-            ],
+        return InkWell(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => const GameRoom()));
+          },
+          child: Container(
+            padding: const EdgeInsets.all(15),
+            color: Colors.white70,
+            height: 100,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Icon(Icons.gamepad),
+                Text('Game room ' + gameRoom.toString()),
+                const Icon(Icons.transit_enterexit),
+              ],
+            ),
           ),
         );
       },
