@@ -10,7 +10,15 @@ class Tabs extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset('assets/nerd.png', height: 45),
+            ],
+          ),
+          backgroundColor: Colors.black,
           bottom: const TabBar(
             tabs: [
               Tab(text: 'Game Rooms'),
